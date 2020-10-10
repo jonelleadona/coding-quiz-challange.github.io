@@ -25,38 +25,38 @@ var quizQuestions = [
     question: "Commonly used data types DO NOT include:",
     
     answers: ["Strings", "Bootstrap", "Alerts", "Numbers"],
-    correct: "b",
+    correct: "1",
   },
   {
     question: "The condition in an if/else statement is enclosed within _______.",
     
     answers: ["Quotes", "Curly Brackets", "Parenthesis", "Square Brackets"],
-    correct: "c",
+    correct: "2",
   },
   {
     question: "Array in JavaScript can be used to store _____.",
     
     answers: ["Numbers and strings", "Other Arrays", "Booleans", "All of the Above"], 
-    correct: "d"
+    correct: "3"
   },
   {
     question: "String values must be enclosed within ________ when being assigned to variables.",
 
     answers: ["Commas", "Curly Brackets", "Quotes", "Paranthesis"],
-    correct: "b"
+    correct: "1"
   },
   {
     question: "A very useful tool used during development and debugging for printing content to the debugger is:",
 
     answers: ["JavaScript", "Terminal / Bash", "For Loops", "Console.log"],
-    correct: "c"
+    correct: "2"
   },
 ];
 
 var currQuestion = -1;
 
 function displayQuestion()
-{
+{ 
   ++currQuestion;
   
   // Go to ending page when last question is reached
@@ -80,8 +80,33 @@ function displayQuestion()
     var button = document.createElement("button");
     button.innerHTML = quizQuestions[currQuestion].answers[i];
     button.className = "rmvBtn";
+    button.id = i;
     button.addEventListener("click", displayQuestion);
     document.getElementById("questionDiv").appendChild(button);
+  }
+
+  // Check user input against correct answer and display results below buttons
+  if (currQuestion > 0)
+  {
+    if (document.getElementById("resultText") !== null)
+    {
+      document.getElementById("resultText").remove();
+    }
+
+    if (this.id === quizQuestions[currQuestion-1].correct)
+    {
+      var resultText = document.createElement("h3");
+      resultText.textContent = "Correct!";
+      resultText.id = "resultText";
+      document.getElementById("result").appendChild(resultText);
+    } 
+    else
+    {
+      var resultText = document.createElement("h3");
+      resultText.textContent = "Wrong!";
+      resultText.id = "resultText";
+      document.getElementById("result").appendChild(resultText);
+    } 
   }
 }
 
