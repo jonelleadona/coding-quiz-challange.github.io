@@ -2,18 +2,26 @@
 // Display timer text
 var timer = document.getElementById("timer");
 
+var timeLeftCounter = 0;
+
 var secondsLeft = 75;
 timer.textContent = "Time: " + secondsLeft;
 
-function timeLeft () {
+function timeLeft() 
+{
   var timerInterval = setInterval(function() {
-    secondsLeft--;
+    // Decrement timer every 100 times this function is called
+    if (++timeLeftCounter % 100 === 0)
+    {
+      --secondsLeft;
+    };
+
     timer.textContent = "Time: " + secondsLeft;
     
     if(secondsLeft === 0){
       clearInterval(timerInterval);
     }
-  }, 1000);
+  }, 10);
 
 }
 
@@ -62,7 +70,8 @@ function displayQuestion()
   // Go to ending page when last question is reached
   if (currQuestion >= quizQuestions.length)
   {
-    location.replace("ending.html");
+    // Passes the timer value to ending.html to use
+    location.replace("ending.html?" + secondsLeft);
   }
 
   // Display questions
@@ -106,6 +115,8 @@ function displayQuestion()
       resultText.textContent = "Wrong!";
       resultText.id = "resultText";
       document.getElementById("result").appendChild(resultText);
+
+      secondsLeft -= 10;
     } 
   }
 }

@@ -24,20 +24,21 @@
     	<div class="row">
       	<div class="col text-center">
         	<h1><br>All done!</br></h1>
-          <h3>Your final score is ...</h3>
+          <h3>Your final score is <span id ="score-container"></span></h3> 
+        </div>
         </div>
     	</div>
 			<div class="row">
-				<div class="col">
-					<form class="form-inline justify-content-center ">
+				<div class="col text-center">
+					<!-- <form class="form-inline justify-content-center "> -->
             <label for="initials">Enter Initials </label>
             <input type="text" id="initials">
-            <input type="submit" value="Submit">
-					</form>
+            <input class="btn btn-primary" type="submit" value="Submit" id="submitBtn">
+					<!-- </form> -->
 				</div>
 			</div>
     </div>
 
   </body>
-  <script src="assets/js/script.js"></script>
+  <script src="assets/js/ending.js"></script>
 </html>
