@@ -5,7 +5,7 @@ For this assignment,I created a responsive quiz that asks a seriers of coding ba
 At the end of the quiz, the use will be presented with the time score. The user will then be able to input their initals which will be saved along side with thier time score. Once the input is saved and displayed, the user will have the option to clear the score board or go back to the start of the quiz. Throughout the whole quiz, the user can also go to score page at anytime to view saved score data. 
 
 
-![] (.assets/img/codingquiz.gif)
+![](./assets/img/codingquiz.gif)
 
 ### Link to Coding Quiz --> https://jonelleadona.github.io/coding-quiz-challenge.github.io/
  
